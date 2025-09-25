@@ -8,6 +8,7 @@ exports.getProfile = async (req, res) => {
         if (!profile) return res.status(404).json({ message: "Profile not found" });
         res.json(profile);
     } catch (err) {
+        console.error("profile error",err);
         res.status(500).json({ message: err.message });
     }
 };
@@ -31,6 +32,7 @@ exports.createProfile = async (req, res) => {
             .status(201)
             .json(profile);
     } catch (err) {
+        console.error(err);
         res.status(400).json({ message: err.message });
     }
 };
@@ -44,6 +46,7 @@ exports.updateProfile = async (req, res) => {
         if (!profile) return res.status(404).json({ message: "Profile not found" });
         res.json(profile);
     } catch (err) {
+        console.error(err);
         res.status(400).json({ message: err.message });
     }
 };

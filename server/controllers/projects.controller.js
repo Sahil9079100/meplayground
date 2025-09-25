@@ -16,6 +16,7 @@ exports.getProjectsBySkill = async (req, res) => {
 
         res.json(projects);
     } catch (err) {
+        console.error(err);
         res.status(500).json({ message: err.message });
     }
 };
@@ -31,6 +32,7 @@ exports.getTopSkills = async (req, res) => {
         const topSkills = skills.slice(0, 5); // just return first 5 skills
         res.json(topSkills);
     } catch (err) {
+        console.error(err);
         res.status(500).json({ message: err.message });
     }
 };
