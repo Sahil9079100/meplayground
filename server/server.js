@@ -11,20 +11,17 @@ const app = express();
 app.use(cookieParser());
 connectDB();
 
-// ✅ Configure CORS properly
 app.use(cors({
-    origin: "http://localhost:5173", // frontend origin
-    credentials: true,               // allow cookies
+    origin: ["http://localhost:5173", "meplayground.netlify.app"],
+    credentials: true,
 }));
 
 app.use(bodyParser.json());
 
-// ✅ Mount under /api so frontend matches
 app.use('/api/profile', profileRoutes);
 app.use('/api/projects', projectsRoutes);
 app.use('/api/search', searchRoutes);
 
-// Health check
 app.get('/health', (req, res) => res.status(200).json({ status: 'ok' }));
 
 const PORT = process.env.PORT || 5000;
