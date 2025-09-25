@@ -11,14 +11,17 @@ function Profile() {
         skills: "",
         work: "",
         links: "",
-        projects: [], // ✅ add projects
+        projects: [],
     });
 
     // Fetch profile on mount
     useEffect(() => {
         API.get("/profile")
             .then((res) => setProfile(res.data))
-            .catch(() => (window.location.href = "/")); // redirect if unauthorized
+            .catch((error) => {
+                window.location.href = "/";
+                console.log(error);
+            });
     }, []);
 
     // Pre-fill form when profile loads
