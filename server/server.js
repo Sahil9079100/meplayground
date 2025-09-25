@@ -12,7 +12,7 @@ app.use(cookieParser());
 connectDB();
 
 app.use(cors({
-    origin: ["http://localhost:5173", "meplayground.netlify.app"],
+    origin: ["http://localhost:5173", "https://meplayground.netlify.app"],
     credentials: true,
 }));
 
