@@ -19,8 +19,8 @@ function Profile() {
         API.get("/profile")
             .then((res) => setProfile(res.data))
             .catch((error) => {
-                window.location.href = "/";
-                console.log(error);
+                // window.location.href = "/";
+                console.log("error on profile page",error);
             });
     }, []);
 
