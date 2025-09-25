@@ -27,7 +27,7 @@ exports.createProfile = async (req, res) => {
             .cookie("token", token, {
                 httpOnly: true,
                 secure: process.env.NODE_ENV === "production",
-                sameSite: "strict",
+                sameSite: "None",
             })
             .status(201)
             .json(profile);
